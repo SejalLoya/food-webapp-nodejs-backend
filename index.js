@@ -17,7 +17,7 @@ app.use(cors({
 app.use(express.json());
 
 app.options("*", cors({
-    origin: "http://localhost:5173",
+    origin: ["http://localhost:5173","https://swiggato-react-redux-frontend.vercel.app"],
     credentials: true
 }));
 
