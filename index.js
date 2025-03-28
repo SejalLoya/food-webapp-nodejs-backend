@@ -9,7 +9,7 @@ const routes = require("./routes");
 
 connectDb();
 app.use(cors({
-    origin: ["http://localhost:5173","swiggato-react-redux-frontend.vercel.app"], // Allow frontend
+    origin: ["http://localhost:5173","https://swiggato-react-redux-frontend.vercel.app"], // Allow frontend
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true 
