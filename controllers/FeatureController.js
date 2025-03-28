@@ -1,6 +1,6 @@
 const Food = require("../models/Food");
 const User = require("../models/User");
-const bcrypt = require("bcrypt");
+const bcrypt = require('bcryptjs');
 const jwt = require("jsonwebtoken");
 const nodemailer = require("nodemailer");
 const stripe = require('stripe')(process.env.STRIPE_KEY);
