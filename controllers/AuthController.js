@@ -67,14 +67,15 @@ const login = async(req,res) => {
 }
 
 //LOGOUT ROUTE
-const logout = async(req,res) => {
+const logout = async (req, res) => {
     try {
-        //clear the authentication cookie from browser
-        res.clearCookie("token").json({success: true, message:"Logged out"});
+        res.clearCookie("token"); 
+        return res.status(200).json({ success: true, message: "Logged out" }); 
     } catch (error) {
-        return res.status(500).json({success: false, message: error.message});
+        return res.status(500).json({ success: false, message: error.message });
     }
-}
+};
+
 
 //GETUSER DETAILS ROUTE
 const getUser = async(req,res) => {
