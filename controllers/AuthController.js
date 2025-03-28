@@ -69,8 +69,12 @@ const login = async(req,res) => {
 //LOGOUT ROUTE
 const logout = async (req, res) => {
     try {
-        res.clearCookie("token"); 
-        return res.status(200).json({ success: true, message: "Logged out" }); 
+        res.clearCookie("token", {
+            httpOnly: true, 
+            secure: true,   // Ensure it's set to `true` in production (HTTPS)
+            sameSite: "None" // Needed for cross-origin requests
+        });
+        return res.status(200).json({ success: true, message: "Logged out" });
     } catch (error) {
         return res.status(500).json({ success: false, message: error.message });
     }
