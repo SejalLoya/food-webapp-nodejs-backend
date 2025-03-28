@@ -66,14 +66,21 @@ const login = async(req,res) => {
     }
 }
 
-//LOGOUT ROUTE
 const logout = async (req, res) => {
     try {
-        res.clearCookie("token").json({ success: true, message: "Logged out" });
+        res.clearCookie("token", {
+            httpOnly: true,
+            secure: true, // Required if your site uses HTTPS
+            sameSite: "None"
+        });
+
+        return res.status(200).json({ success: true, message: "Logged out successfully" });
     } catch (error) {
         return res.status(500).json({ success: false, message: error.message });
     }
 };
+
+
 
 
 //GETUSER DETAILS ROUTE
